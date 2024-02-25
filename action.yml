@@ -22,10 +22,13 @@ runs:
 
       - name: Make health-check.sh executable
         run: chmod +x health-check.sh
+
+      - name: List files in the current directory
+        run: ls -la
         
       - name: Run health check  
         run: health-check.sh $INPUT_URL 
         shell: bash
         env:
           INPUT_URL: ${{ inputs.url }}
-
+    
