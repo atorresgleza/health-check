@@ -5,6 +5,7 @@ on: [push]
 jobs:
   health_check:
     runs-on: ubuntu-latest
+    environment: TESTING
     name: A job to perform health check
     steps:
       - uses: actions/checkout@v4
