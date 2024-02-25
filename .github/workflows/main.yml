@@ -9,18 +9,6 @@ jobs:
     name: health check
     steps:
       - uses: actions/checkout@v4
-      - name: Set GitHub Path
-        run: echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
-        shell: bash
-        env:
-          GITHUB_ACTION_PATH: ${{ github.action_path }}
-
-      - name: Make health-check.sh executable
-        run: chmod +x health-check.sh
-
-      - name: List files in the current directory
-        run: ls -la
-        
       - name: Health Check Step
         uses: atorresgleza/health-check@v1
         with:
