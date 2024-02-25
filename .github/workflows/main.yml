@@ -11,4 +11,4 @@ jobs:
       - name: Health Check Step
         uses: atorresgleza/health-check@v1
         with:
-          url: ${{secrets.URL_TEST}}
+          url: ${{vars.URL_TEST}}
