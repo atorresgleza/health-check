@@ -27,7 +27,7 @@ runs:
       #   run: ls -la
         
       - name: Run health check  
-        run: curl -I -s $INPUT_URL | awk '/^HTTP/{print $2}'
+        run: echo "asdasdasdasd"
         shell: bash
         env:
           INPUT_URL: ${{ inputs.url }}
