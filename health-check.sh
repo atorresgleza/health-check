@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 website=$1
 ok=0
