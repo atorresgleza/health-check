@@ -1,6 +1,6 @@
 #!/bin/sh
 
-website=$1
+website=https://google.com
 ok=0
 status=(304 404 405 429 500 502 503)
 
