@@ -1,0 +1,21 @@
+name: 'Health Check'
+description: 'Wepsite health according to status code'
+inputs:
+  url:
+    description: 'Website url'
+    required: true
+runs:
+    using: 'composite'
+    steps:
+      - name: Check Runner OS
+        if: ${{ runner.os != 'Linux' }}
+        shell: bash
+        run: |
+          echo "Support Linux Only"
+          exit 1
+      - name: Run health check  
+        run: health-check.sh $INPUT_URL 
+        shell: bash
+        env:
+          INPUT_URL: ${{ inputs.url }}
+
