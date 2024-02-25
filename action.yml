@@ -19,6 +19,9 @@ runs:
       shell: bash
       env:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
+
+      - name: Make health-check.sh executable
+        run: chmod +x health-check.sh
         
       - name: Run health check  
         run: health-check.sh $INPUT_URL 
