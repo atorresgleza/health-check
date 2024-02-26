@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Health Check Step
-        uses: atorresgleza/health-check@main
+        uses: atorresgleza/health-check@v1
         with:
           url: ${{secrets.URL}}
