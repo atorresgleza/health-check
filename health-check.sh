@@ -5,7 +5,7 @@ ok=0
 status=(304 404 405 429 500 502 503)
 
 is_ok() {
-  exit ok
+  exit $ok
 }
 
 for code in "${status[@]}"; do
