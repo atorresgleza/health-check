@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-website=https://google.com
+website=$1
 ok=0
 status=(304 404 405 429 500 502 503)
 
