@@ -5,13 +5,13 @@ ok=0
 status=(304 404 405 429 500 502 503)
 
 is_ok() {
-  echo "OK"
+  exit ok
 }
 
 for code in "${status[@]}"; do
-  if [ "$(curl -I -s $website | awk '/^HTTP/{print $2}')" = $code ]; then
-    echo "BAD"
+  if [ "$(curl -I -s $website | awk '/^HTTP/{print $2}')" = $code ]; then    
     ok=1 
+    is_ok
     break
   fi
 done
