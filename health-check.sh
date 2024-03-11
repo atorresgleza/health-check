@@ -16,7 +16,7 @@ is_ok() {
 }
 
 for code in "${status[@]}"; do
-  if [ $CODE = $code ]; then    
+  if [ "$CODE" = "$code" ]; then    
     ok=1
     is_ok
     break
