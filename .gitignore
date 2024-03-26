@@ -4,3 +4,12 @@
 
 # Secret act files
 .secrets
+
+# cache
+.cache
+
+#act
+.secrets
+
+#lib
+lib
