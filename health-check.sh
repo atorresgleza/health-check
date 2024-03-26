@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+if [[ $# -lt 1 ]]; then
+    echo "Usage: $0 <website_url> [bad_status_codes...]"
+    exit 1
+fi
+
+timeout=5
+max_time=10
 website=$1
 res=""
 status_bad=(304 404 405 429 500 502 503)
