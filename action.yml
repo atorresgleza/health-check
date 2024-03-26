@@ -6,14 +6,14 @@ inputs:
     description: "Website URL"
     required: true
 runs:
-    using: 'composite'
-    steps:
-      - name: Check Runner OS
-        if: ${{ runner.os != 'Linux' }}
-        shell: bash
-        run: |
-          echo "Support Linux Only"
-          exit 1
+  using: "composite"
+  steps:
+    - name: Check Runner OS
+      if: ${{ runner.os != 'Linux' }}
+      shell: bash
+      run: |
+        echo "Supports Linux Only"
+        exit 1
 
       - name: Set GitHub Path
         run: echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
