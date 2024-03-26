@@ -3,7 +3,7 @@ author: "Adrian Torres"
 description: "Assesses website health based on its status code to identify issues."
 inputs:
   url:
-    description: 'Website url'
+    description: "Website URL"
     required: true
 runs:
     using: 'composite'
