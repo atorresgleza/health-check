@@ -31,3 +31,6 @@ function testFailURLNotExist() {
     assert_equals "[-] FAIL" "$( $SCRIPT "$MURL" )"
 }
 
+function testFailURLEmpty() {
+    assert_equals "Usage: $SCRIPT <website_url> [bad_status_codes...]" "$( $SCRIPT )"
+}
