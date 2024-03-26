@@ -11,7 +11,10 @@ website=$1
 res=""
 status_bad=(304 404 405 429 500 502 503)
 
-read HTTP CODE MSG <<< "$(curl -I -s $website | awk '/^HTTP/{print $1, $2, $3}')"
+shift
+status_codes_to_check=("${@:-304 404 405 429 500 502 503}")
+
+response=$(curl -I -s --connect-timeout "$timeout" -m "$max_time" --fail "$website" | head -n 1)
 curl_exit_status=$?
 
 msg() {
