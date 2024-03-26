@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 website=$1
 res=""
