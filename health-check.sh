@@ -21,19 +21,14 @@ read -r HTTP CODE <<< "$(awk '/^HTTP/{print $1, $2}' <<< "$response")"
 MSG="$(cut -d " " -f3- <<< "$response")"
 
 msg() {
-  echo "$1 $HTTP $CODE $MSG"
-  exit $2
-}
-
-searh_bad() {
-  local st=$1
-  for code in "${status_bad[@]}"; do
-    if [ "$st" = "$code" ]; then    
-      return 1
-      break
+    local status_code="$1"
+    local message="[+] OK $HTTP $status_code $MSG"
+    local exit_code=0
+    
+    if [[ " ${status_codes_to_check[*]} " =~ ${status_code} || $curl_exit_status -ne 0 || -z "$status_code" ]]; then
+        message="[-] FAIL $HTTP $status_code $MSG"; exit_code=1
     fi
-  done
-  return 0
+    echo "$message" | xargs; exit $exit_code
 }
 
 is_ok() {
