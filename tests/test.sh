@@ -16,3 +16,8 @@ function testFailWebsiteResponds404() {
     assert_equals "[-] FAIL HTTP/1.1 404 Not Found" "$( $SCRIPT "$MURL" )"
 }
 
+function testFailNewStatusCodeList401() {
+    mock curl echo "HTTP/1.1 401 Unauthorized"
+    assert_equals "[-] FAIL HTTP/1.1 401 Unauthorized" "$( $SCRIPT "$MURL" 304 401 404 405 429 500 502 503 )"
+}
+
