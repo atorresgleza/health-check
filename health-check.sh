@@ -31,17 +31,4 @@ msg() {
     echo "$message" | xargs; exit $exit_code
 }
 
-is_ok() {
-  local st=$1
-  local code=$2
-  if [ -z "$code" ]; then 
-       msg "[-] FAIL" 1; 
-  else searh_bad "$code"
-    if [ $? -eq 0 ]; then
-       msg "[+] OK" 0
-    else msg "[-] FAIL" 1
-    fi 
-  fi
-}
-
-is_ok $curl_exit_status $CODE
+msg "$CODE"
