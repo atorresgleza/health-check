@@ -8,8 +8,6 @@ fi
 timeout=5
 max_time=10
 website=$1
-res=""
-status_bad=(304 404 405 429 500 502 503)
 
 shift
 status_codes_to_check=("${@:-304 404 405 429 500 502 503}")
