@@ -11,3 +11,8 @@ function testOKWebsiteResponds() {
     assert_equals "[+] OK HTTP/1.1 200 OK" "$( $SCRIPT "$MURL" )"
 }
 
+function testFailWebsiteResponds404() {
+    mock curl echo "HTTP/1.1 404 Not Found"
+    assert_equals "[-] FAIL HTTP/1.1 404 Not Found" "$( $SCRIPT "$MURL" )"
+}
+
