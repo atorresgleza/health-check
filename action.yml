@@ -5,6 +5,10 @@ inputs:
   url:
     description: "Website URL"
     required: true
+  alertCodesList:
+    description: "HTTP status codes indicating issues, separated by spaces (e.g., '404 500 503')"
+    required: true
+    default: "304 404 405 429 500 502 503"
 runs:
   using: "composite"
   steps:
