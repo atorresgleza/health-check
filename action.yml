@@ -1,5 +1,6 @@
-name: 'Health Check'
-description: 'Wepsite health according to status code'
+name: "Health Check"
+author: "Adrian Torres"
+description: "Assesses website health based on its status code to identify issues."
 inputs:
   url:
     description: 'Website url'
