@@ -26,3 +26,8 @@ function testOKNewStatusCodeList404() {
     assert_equals "[+] OK HTTP/1.1 404 Not Found" "$( $SCRIPT "$MURL" 304 405 429 500 502 503 )"
 }
 
+function testFailURLNotExist() {
+    mock curl echo ""
+    assert_equals "[-] FAIL" "$( $SCRIPT "$MURL" )"
+}
+
