@@ -19,15 +19,14 @@ runs:
         echo "Supports Linux Only"
         exit 1
 
-      - name: Set GitHub Path
-        run: echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
-        shell: bash
-        env:
-          GITHUB_ACTION_PATH: ${{ github.action_path }}
-        
-      - name: Run health check  
-        run: health-check.sh $INPUT_URL 
-        shell: bash
-        env:
-          INPUT_URL: ${{ inputs.url }}
-    
+    - name: Set GitHub Path
+      run: echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
+      shell: bash
+      env:
+        GITHUB_ACTION_PATH: ${{ github.action_path }}
+
+    - name: Run health check
+      run: health-check.sh $INPUT_URL
+      shell: bash
+      env:
+        INPUT_URL: ${{ inputs.url }}
